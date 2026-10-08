@@ -29,11 +29,11 @@
     ];
 
     if (parsed.price !== undefined && !parsed.templates) {
-      parsed = { templates: [{ id: 'tpl_1', name: 'Crachá� Padr+�o', price: parsed.price || 15, bg_front: parsed.bg_url || '', bg_back: '', crop_marks: 'green', layout_front: defaultLayoutFront, layout_back: defaultLayoutBack }] };
+      parsed = { templates: [{ id: 'tpl_1', name: 'Crach+� Padr+�o', price: parsed.price || 15, bg_front: parsed.bg_url || '', bg_back: '', crop_marks: 'green', layout_front: defaultLayoutFront, layout_back: defaultLayoutBack }] };
       this.saveSettings(parsed);
     }
     if (!parsed.templates || parsed.templates.length === 0) {
-      parsed.templates = [{ id: 'tpl_1', name: 'Crachá� Padr+�o', price: 15, bg_front: '', bg_back: '', crop_marks: 'green', layout_front: defaultLayoutFront, layout_back: defaultLayoutBack }];
+      parsed.templates = [{ id: 'tpl_1', name: 'Crach+� Padr+�o', price: 15, bg_front: '', bg_back: '', crop_marks: 'green', layout_front: defaultLayoutFront, layout_back: defaultLayoutBack }];
       this.saveSettings(parsed);
     } else {
       parsed.templates.forEach(t => {
@@ -180,7 +180,7 @@
     const container = document.getElementById('view-container');
     const tabs = [
       { id: 'vitrine', label: 'Vitrine' },
-      { id: 'pedido', label: 'Crach&aacute; Personalizado' },
+      { id: 'pedido', label: 'Crachá Personalizado' },
       { id: 'cart', label: 'Carrinho (' + this.cart.length + ')' },
       { id: 'meus_pedidos', label: 'Meus Pedidos' },
       { id: 'perfil', label: 'Meu Perfil' }
@@ -198,15 +198,14 @@
     if (this.currentTab === 'vitrine') contentHtml = this.getVitrineHtml();
     else if (this.currentTab === 'pedido') contentHtml = this.getPedidoTabHtml();
     else if (this.currentTab === 'cart') contentHtml = this.getCartHtml();
-    else if (this.currentTab === 'meus_pedidos') contentHtml = this.getPedidosTabHtml();
-    else if (this.currentTab === 'perfil') contentHtml = this.getPerfilTabHtml();
-    else if (this.currentTab === 'config') contentHtml = this.getConfigTabHtml();
+    else if (this.currentTab === 'meus_pedidos') contentHtml = this.getMeusPedidosHtml();
+    else if (this.currentTab === 'perfil') contentHtml = this.getPerfilHtml();
     else contentHtml = this.getVitrineHtml();
 
     container.innerHTML = `
       <div class="mb-6 bg-blue-600 rounded-2xl p-6 text-white shadow-lg flex justify-between items-center">
         <div>
-          <h2 class="text-2xl font-black">Ol&aacute;, ${this.currentClient.nome.toUpperCase()}!</h2>
+          <h2 class="text-2xl font-black">Olá, ${this.currentClient.nome.toUpperCase()}!</h2>
           <p class="text-blue-100 text-sm">Bem-vindo &agrave; nossa loja</p>
         </div>
         <div class="text-right flex flex-col items-end">
@@ -299,7 +298,7 @@
       let price = item.preco || 0;
       total += price * (item.quantidade || 1);
       
-      let details = item.type === 'cracha' ? `Crach&aacute; Personalizado: ${item.nome}` : item.nome;
+      let details = item.type === 'cracha' ? `Crachá Personalizado: ${item.nome}` : item.nome;
       return `
         <div class="flex items-center justify-between p-4 border-b border-slate-100 last:border-0">
           <div>
@@ -406,7 +405,7 @@
       cartHtml = `
         <div class="mt-8 border-t pt-6">
           <h4 class="font-black text-slate-800 mb-4 flex items-center justify-between">
-            <span>Crachá�s no Pedido Atual (${this.cart.length})</span>
+            <span>Crach+�s no Pedido Atual (${this.cart.length})</span>
             <span class="text-blue-700 text-xl">Total: R$ ${cartTotal.toFixed(2)}</span>
           </h4>
           <div class="space-y-3 mb-6">
@@ -442,13 +441,10 @@
 
     return `
       <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-        <div class="flex justify-between items-center mb-6">
-            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
-               <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
-               Solicitar Novo Crachá
-            </h3>
-            <button type="button" onclick="selfserviceModule.openEditor('${template.id}')" class="text-xs font-bold text-blue-600 hover:text-blue-800 border border-blue-200 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition shadow-sm">Configurar Layout Base</button>
-          </div>
+        <h3 class="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
+           <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+           Solicitar Novo Crach+�
+        </h3>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
@@ -459,7 +455,7 @@
                 
                 const hasPhoto = fields.some(f => f.type === 'photo' && f.visible !== false);
                 if (hasPhoto) {
-                  html += `<div><label class="block text-xs font-bold text-slate-700 mb-1">Foto do Crachá�-� *</label>
+                  html += `<div><label class="block text-xs font-bold text-slate-700 mb-1">Foto do Crach+�-� *</label>
                            <input type="file" id="cr-foto" required accept="image/*" onchange="selfserviceModule.handlePhoto(this)" class="w-full text-sm p-3 border rounded-xl bg-slate-50 focus:ring-2 focus:ring-blue-500"></div>`;
                 }
 
@@ -485,7 +481,7 @@
           </div>
 
           <div class="flex flex-col items-center justify-start border-t lg:border-t-0 lg:border-l pt-6 lg:pt-0 lg:pl-8 border-slate-200 overflow-x-auto">
-            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Pr+�-visualiza+�+�o do Crachá�</p>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Pr+�-visualiza+�+�o do Crach+�</p>
             
             <div class="w-full max-w-[250px] flex mb-4 bg-slate-100 rounded-lg shadow-sm border border-slate-200">
                <button id="btn-prev-front" onclick="selfserviceModule.switchPreviewTab('front')" class="flex-1 py-2 text-sm font-bold bg-blue-600 text-white rounded-l-lg transition">FRENTE</button>
@@ -748,14 +744,14 @@
   
       this.cart.push({
         details,
-        nome: details.nome || details.campo1 || 'Crachá�-�',
+        nome: details.nome || details.campo1 || 'Crach+�-�',
         mat: details.mat || details.campo2 || '',
         sangue: details.sangue || details.campo3 || '',
         foto: this.photoDataUrl,
         preco,
         frontUrl: finalImageFront,
         backUrl: finalImageBack,
-        templateName: template.name || 'Crachá�-�'
+        templateName: template.name || 'Crach+�-�'
       });
 
     this.photoDataUrl = null;
@@ -791,7 +787,7 @@
       return;
     }
 
-    if(!confirm(`CONFIRMAR PEDIDO DE ${this.cart.length} Crachá�(S)?\\n\\nSer+�o descontados R$ ${totalPreco.toFixed(2)} do seu saldo.`)) return;
+    if(!confirm(`CONFIRMAR PEDIDO DE ${this.cart.length} CRACH+�(S)?\\n\\nSer+�o descontados R$ ${totalPreco.toFixed(2)} do seu saldo.`)) return;
 
     const clients = window.store.getClients();
     const idx = clients.findIndex(c => c.id === this.currentClient.id);
@@ -872,7 +868,7 @@
       let desc = 'Produto Gen+�rico';
       if (o.itens && o.itens.length > 0) {
         if (o.itens.length === 1) desc = o.itens[0].descricao;
-        else desc = `Pedido com ${o.itens.length} Crachá�s`;
+        else desc = `Pedido com ${o.itens.length} crach+�s`;
       }
       const total = (o.itens || []).reduce((acc, it) => acc + (it.valor_total || 0), 0);
       const dataFormat = new Date(o.data_criacao).toLocaleDateString('pt-BR');
@@ -974,7 +970,7 @@
         <div class="flex justify-between items-center mb-6 border-b pb-4">
           <h3 class="text-lg font-bold text-slate-800">Modelos Base de Produtos (Templates)</h3>
         </div>
-        <p class="text-sm text-slate-600 mb-4">Apenas o primeiro modelo desta lista +� usado como base para os novos Crachá�s.</p>
+        <p class="text-sm text-slate-600 mb-4">Apenas o primeiro modelo desta lista +� usado como base para os novos crach+�s.</p>
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
@@ -1055,7 +1051,7 @@ window.layoutEditorModule = {
       <!-- Header -->
       <div class="bg-white p-4 flex justify-between items-center shadow-md z-10">
         <div>
-          <h2 class="text-xl font-black text-slate-800">Editor de Layout de Crachá�</h2>
+          <h2 class="text-xl font-black text-slate-800">Editor de Layout de Crach+�</h2>
           <p class="text-xs text-slate-500">Arraste os elementos. Arte: 58x89mm (sangria). +�rea Segura: 54x85mm.</p>
         </div>
         <div class="flex gap-4">
