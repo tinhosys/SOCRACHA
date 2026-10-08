@@ -1,4 +1,4 @@
-window.selfserviceModule = {
+ï»¿window.selfserviceModule = {
   currentClient: null,
   currentTab: 'pedido',
   cart: [],
@@ -21,7 +21,7 @@ window.selfserviceModule = {
     const defaultLayoutFront = [
       { id: 'photo_1', type: 'photo', x: 282, y: 350, w: 120, h: 120, radius: 60 },
       { id: 'text_1', type: 'text', field: 'nome', label: 'Nome do Cliente', x: 342, y: 550, color: '#1e293b', font: '900 40px Arial', align: 'center' },
-      { id: 'text_2', type: 'text', field: 'mat', label: 'Matr+¡cula: {mat}', x: 342, y: 600, color: '#64748b', font: 'bold 24px Arial', align: 'center' },
+      { id: 'text_2', type: 'text', field: 'mat', label: 'Matr+ï¿½cula: {mat}', x: 342, y: 600, color: '#64748b', font: 'bold 24px Arial', align: 'center' },
       { id: 'text_3', type: 'text', field: 'sangue', label: 'Sangue: {sangue}', x: 342, y: 650, color: '#e11d48', font: '900 28px Arial', align: 'center' }
     ];
     const defaultLayoutBack = [
@@ -29,11 +29,11 @@ window.selfserviceModule = {
     ];
 
     if (parsed.price !== undefined && !parsed.templates) {
-      parsed = { templates: [{ id: 'tpl_1', name: 'Crach+í Padr+úo', price: parsed.price || 15, bg_front: parsed.bg_url || '', bg_back: '', crop_marks: 'green', layout_front: defaultLayoutFront, layout_back: defaultLayoutBack }] };
+      parsed = { templates: [{ id: 'tpl_1', name: 'CrachÃ¡ï¿½ Padr+ï¿½o', price: parsed.price || 15, bg_front: parsed.bg_url || '', bg_back: '', crop_marks: 'green', layout_front: defaultLayoutFront, layout_back: defaultLayoutBack }] };
       this.saveSettings(parsed);
     }
     if (!parsed.templates || parsed.templates.length === 0) {
-      parsed.templates = [{ id: 'tpl_1', name: 'Crach+í Padr+úo', price: 15, bg_front: '', bg_back: '', crop_marks: 'green', layout_front: defaultLayoutFront, layout_back: defaultLayoutBack }];
+      parsed.templates = [{ id: 'tpl_1', name: 'CrachÃ¡ï¿½ Padr+ï¿½o', price: 15, bg_front: '', bg_back: '', crop_marks: 'green', layout_front: defaultLayoutFront, layout_back: defaultLayoutBack }];
       this.saveSettings(parsed);
     } else {
       parsed.templates.forEach(t => {
@@ -405,7 +405,7 @@ window.selfserviceModule = {
       cartHtml = `
         <div class="mt-8 border-t pt-6">
           <h4 class="font-black text-slate-800 mb-4 flex items-center justify-between">
-            <span>Crach+ís no Pedido Atual (${this.cart.length})</span>
+            <span>CrachÃ¡ï¿½s no Pedido Atual (${this.cart.length})</span>
             <span class="text-blue-700 text-xl">Total: R$ ${cartTotal.toFixed(2)}</span>
           </h4>
           <div class="space-y-3 mb-6">
@@ -443,7 +443,7 @@ window.selfserviceModule = {
       <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
         <h3 class="text-lg font-bold text-slate-800 mb-6 flex items-center gap-2">
            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
-           Solicitar Novo Crach+í
+           Solicitar Novo CrachÃ¡ï¿½
         </h3>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -455,7 +455,7 @@ window.selfserviceModule = {
                 
                 const hasPhoto = fields.some(f => f.type === 'photo' && f.visible !== false);
                 if (hasPhoto) {
-                  html += `<div><label class="block text-xs font-bold text-slate-700 mb-1">Foto do Crach+â-í *</label>
+                  html += `<div><label class="block text-xs font-bold text-slate-700 mb-1">Foto do CrachÃ¡ï¿½-ï¿½ *</label>
                            <input type="file" id="cr-foto" required accept="image/*" onchange="selfserviceModule.handlePhoto(this)" class="w-full text-sm p-3 border rounded-xl bg-slate-50 focus:ring-2 focus:ring-blue-500"></div>`;
                 }
 
@@ -481,7 +481,7 @@ window.selfserviceModule = {
           </div>
 
           <div class="flex flex-col items-center justify-start border-t lg:border-t-0 lg:border-l pt-6 lg:pt-0 lg:pl-8 border-slate-200 overflow-x-auto">
-            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Pr+®-visualiza+º+úo do Crach+í</p>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Pr+ï¿½-visualiza+ï¿½+ï¿½o do CrachÃ¡ï¿½</p>
             
             <div class="w-full max-w-[250px] flex mb-4 bg-slate-100 rounded-lg shadow-sm border border-slate-200">
                <button id="btn-prev-front" onclick="selfserviceModule.switchPreviewTab('front')" class="flex-1 py-2 text-sm font-bold bg-blue-600 text-white rounded-l-lg transition">FRENTE</button>
@@ -493,7 +493,7 @@ window.selfserviceModule = {
                 <span class="absolute text-slate-400 text-xs font-bold preview-loading" id="load-front">GERANDO...</span>
                 <canvas id="cracha-canvas-front" width="685" height="1051" class="w-full h-full relative z-10" style="object-fit: contain;"></canvas>
               </div>
-              <p class="text-[10px] text-slate-500 mt-2 text-center leading-tight">A arte final cont+®m sangria para impress+úo (58x89mm).<br>As linhas mostram a +írea segura (54x85mm).</p>
+              <p class="text-[10px] text-slate-500 mt-2 text-center leading-tight">A arte final cont+ï¿½m sangria para impress+ï¿½o (58x89mm).<br>As linhas mostram a +ï¿½rea segura (54x85mm).</p>
             </div>
             
             <div id="container-prev-back" class="flex-col items-center" style="display: none;">
@@ -501,7 +501,7 @@ window.selfserviceModule = {
                 <span class="absolute text-slate-400 text-xs font-bold preview-loading" id="load-back">GERANDO...</span>
                 <canvas id="cracha-canvas-back" width="685" height="1051" class="w-full h-full relative z-10" style="object-fit: contain;"></canvas>
               </div>
-              <p class="text-[10px] text-slate-500 mt-2 text-center leading-tight">A arte final cont+®m sangria para impress+úo (58x89mm).<br>As linhas mostram a +írea segura (54x85mm).</p>
+              <p class="text-[10px] text-slate-500 mt-2 text-center leading-tight">A arte final cont+ï¿½m sangria para impress+ï¿½o (58x89mm).<br>As linhas mostram a +ï¿½rea segura (54x85mm).</p>
             </div>
           </div>
         </div>
@@ -744,14 +744,14 @@ window.selfserviceModule = {
   
       this.cart.push({
         details,
-        nome: details.nome || details.campo1 || 'Crach+â-í',
+        nome: details.nome || details.campo1 || 'CrachÃ¡ï¿½-ï¿½',
         mat: details.mat || details.campo2 || '',
         sangue: details.sangue || details.campo3 || '',
         foto: this.photoDataUrl,
         preco,
         frontUrl: finalImageFront,
         backUrl: finalImageBack,
-        templateName: template.name || 'Crach+â-í'
+        templateName: template.name || 'CrachÃ¡ï¿½-ï¿½'
       });
 
     this.photoDataUrl = null;
@@ -783,11 +783,11 @@ window.selfserviceModule = {
     this.currentClient.saldo_corrente = Number(this.currentClient.saldo_corrente) || 0;
     
     if (this.currentClient.saldo_corrente < totalPreco) {
-      alert(`SALDO INSUFICIENTE!\\n\\nVoc+¬ possui R$ ${this.currentClient.saldo_corrente.toFixed(2)}.\\nO pedido custa R$ ${totalPreco.toFixed(2)}.\\n\\nV+í na aba "Meus Pedidos" para recarregar com PIX.`);
+      alert(`SALDO INSUFICIENTE!\\n\\nVoc+ï¿½ possui R$ ${this.currentClient.saldo_corrente.toFixed(2)}.\\nO pedido custa R$ ${totalPreco.toFixed(2)}.\\n\\nV+ï¿½ na aba "Meus Pedidos" para recarregar com PIX.`);
       return;
     }
 
-    if(!confirm(`CONFIRMAR PEDIDO DE ${this.cart.length} CRACH+ü(S)?\\n\\nSer+úo descontados R$ ${totalPreco.toFixed(2)} do seu saldo.`)) return;
+    if(!confirm(`CONFIRMAR PEDIDO DE ${this.cart.length} CrachÃ¡ï¿½(S)?\\n\\nSer+ï¿½o descontados R$ ${totalPreco.toFixed(2)} do seu saldo.`)) return;
 
     const clients = window.store.getClients();
     const idx = clients.findIndex(c => c.id === this.currentClient.id);
@@ -835,7 +835,7 @@ window.selfserviceModule = {
       pedido_id: pedido.id
     });
 
-    alert('PEDIDO ENVIADO PARA PRODU+ç+âO!\\n\\nSeu pedido foi registrado e o valor descontado da conta.');
+    alert('PEDIDO ENVIADO PARA PRODU+ï¿½+ï¿½O!\\n\\nSeu pedido foi registrado e o valor descontado da conta.');
     this.cart = []; 
     this.setTab('pedidos');
   },
@@ -865,10 +865,10 @@ window.selfserviceModule = {
     }
     
     listEl.innerHTML = orders.map(o => {
-      let desc = 'Produto Gen+®rico';
+      let desc = 'Produto Gen+ï¿½rico';
       if (o.itens && o.itens.length > 0) {
         if (o.itens.length === 1) desc = o.itens[0].descricao;
-        else desc = `Pedido com ${o.itens.length} crach+ís`;
+        else desc = `Pedido com ${o.itens.length} CrachÃ¡ï¿½s`;
       }
       const total = (o.itens || []).reduce((acc, it) => acc + (it.valor_total || 0), 0);
       const dataFormat = new Date(o.data_criacao).toLocaleDateString('pt-BR');
@@ -893,7 +893,7 @@ window.selfserviceModule = {
     const html = `
       <div id="pix-modal" class="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl p-6 w-full max-w-sm text-center shadow-2xl border border-slate-100">
-           <h2 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">Recarga via PIX (Simula+º+úo)</h2>
+           <h2 class="font-bold text-lg text-slate-800 mb-4 border-b pb-2">Recarga via PIX (Simula+ï¿½+ï¿½o)</h2>
            <label class="block text-xs font-bold text-slate-600 text-left mb-1">Valor da Recarga (R$)</label>
            <input type="number" id="pix-valor" class="w-full border border-slate-300 p-3 mb-6 rounded-lg text-center text-xl font-black text-green-700 focus:ring-2 focus:ring-green-500" value="50.00" step="10.00">
            <div class="bg-slate-100 w-48 h-48 mx-auto flex flex-col items-center justify-center mb-4 rounded-xl border border-slate-200 shadow-inner">
@@ -939,7 +939,7 @@ window.selfserviceModule = {
             </div>
           </div>
           <div class="border-t pt-4 mt-6">
-             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-xl transition shadow-md uppercase text-sm">Salvar Altera+º+Áes do Perfil</button>
+             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-xl transition shadow-md uppercase text-sm">Salvar Altera+ï¿½+ï¿½es do Perfil</button>
           </div>
         </form>
       </div>
@@ -970,16 +970,16 @@ window.selfserviceModule = {
         <div class="flex justify-between items-center mb-6 border-b pb-4">
           <h3 class="text-lg font-bold text-slate-800">Modelos Base de Produtos (Templates)</h3>
         </div>
-        <p class="text-sm text-slate-600 mb-4">Apenas o primeiro modelo desta lista +® usado como base para os novos crach+ís.</p>
+        <p class="text-sm text-slate-600 mb-4">Apenas o primeiro modelo desta lista +ï¿½ usado como base para os novos CrachÃ¡ï¿½s.</p>
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="bg-slate-50 text-slate-600 text-sm">
                 <th class="p-3 border-b font-bold rounded-tl-lg">Nome do Produto</th>
-                <th class="p-3 border-b font-bold">Pre+ºo Base</th>
+                <th class="p-3 border-b font-bold">Pre+ï¿½o Base</th>
                 <th class="p-3 border-b font-bold text-center">Frente</th>
                 <th class="p-3 border-b font-bold text-center">Verso</th>
-                <th class="p-3 border-b font-bold text-right rounded-tr-lg">A+º+Áes</th>
+                <th class="p-3 border-b font-bold text-right rounded-tr-lg">A+ï¿½+ï¿½es</th>
               </tr>
             </thead>
             <tbody>
@@ -987,8 +987,8 @@ window.selfserviceModule = {
                 <tr class="hover:bg-slate-50 transition border-b border-slate-100">
                   <td class="p-3 font-semibold text-slate-800">${t.name}</td>
                   <td class="p-3 text-blue-700 font-bold">R$ ${Number(t.price).toFixed(2)}</td>
-                  <td class="p-3 text-center">${t.bg_front ? '<span class="text-green-600 font-bold text-xs">Sim</span>' : '<span class="text-slate-400 text-xs">N+úo</span>'}</td>
-                  <td class="p-3 text-center">${t.bg_back ? '<span class="text-green-600 font-bold text-xs">Sim</span>' : '<span class="text-slate-400 text-xs">N+úo</span>'}</td>
+                  <td class="p-3 text-center">${t.bg_front ? '<span class="text-green-600 font-bold text-xs">Sim</span>' : '<span class="text-slate-400 text-xs">N+ï¿½o</span>'}</td>
+                  <td class="p-3 text-center">${t.bg_back ? '<span class="text-green-600 font-bold text-xs">Sim</span>' : '<span class="text-slate-400 text-xs">N+ï¿½o</span>'}</td>
                   <td class="p-3 text-right">
                     <button onclick="window.layoutEditorModule.openEditor('${t.id}')" class="text-indigo-600 font-bold text-sm hover:underline">Editar Layout</button>
                   </td>
@@ -1018,7 +1018,7 @@ window.layoutEditorModule = {
     let t = settings.templates.find(x => x.id === templateId);
     
     if (!t) {
-       alert("Modelo n+úo encontrado."); return;
+       alert("Modelo n+ï¿½o encontrado."); return;
     }
 
     this.layoutFront = JSON.parse(JSON.stringify(t.layout_front || []));
@@ -1051,8 +1051,8 @@ window.layoutEditorModule = {
       <!-- Header -->
       <div class="bg-white p-4 flex justify-between items-center shadow-md z-10">
         <div>
-          <h2 class="text-xl font-black text-slate-800">Editor de Layout de Crach+í</h2>
-          <p class="text-xs text-slate-500">Arraste os elementos. Arte: 58x89mm (sangria). +ürea Segura: 54x85mm.</p>
+          <h2 class="text-xl font-black text-slate-800">Editor de Layout de CrachÃ¡ï¿½</h2>
+          <p class="text-xs text-slate-500">Arraste os elementos. Arte: 58x89mm (sangria). +ï¿½rea Segura: 54x85mm.</p>
         </div>
         <div class="flex gap-4">
           <button onclick="layoutEditorModule.closeEditor()" class="px-5 py-2 bg-slate-200 hover:bg-slate-300 font-bold rounded-lg text-sm transition">Cancelar</button>
@@ -1072,7 +1072,7 @@ window.layoutEditorModule = {
 
           <h3 class="text-xs font-black text-slate-800 uppercase mb-3">Adicionar Elemento</h3>
           <button onclick="layoutEditorModule.addElement('text')" class="w-full text-left px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:border-blue-300 mb-2 transition">+ Campo de Texto</button>
-          <button onclick="layoutEditorModule.addElement('photo')" class="w-full text-left px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:border-blue-300 mb-6 transition">+ +ürea da Foto</button>
+          <button onclick="layoutEditorModule.addElement('photo')" class="w-full text-left px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-700 hover:bg-blue-50 hover:border-blue-300 mb-6 transition">+ +ï¿½rea da Foto</button>
           
           <h3 class="text-xs font-black text-slate-800 uppercase mb-3">Fundo & Guias</h3>
           <div class="mb-4">
@@ -1082,7 +1082,7 @@ window.layoutEditorModule = {
           <div class="mb-6">
             <label class="block text-[10px] font-bold text-slate-600 mb-1">Cor da Linha de Corte</label>
             <select onchange="layoutEditorModule.changeCropMarks(this.value)" class="w-full p-2 border rounded bg-white text-xs">
-               <option value="green" ${this.cropMarks === 'green' ? 'selected' : ''}>Verde Lim+úo</option>
+               <option value="green" ${this.cropMarks === 'green' ? 'selected' : ''}>Verde Lim+ï¿½o</option>
                <option value="white" ${this.cropMarks === 'white' ? 'selected' : ''}>Branco</option>
                <option value="black" ${this.cropMarks === 'black' ? 'selected' : ''}>Preto</option>
                <option value="none" ${this.cropMarks === 'none' ? 'selected' : ''}>Nenhuma</option>
@@ -1197,7 +1197,7 @@ window.layoutEditorModule = {
     } else {
       html += `
         <div class="mb-3">
-           <label class="block text-[10px] font-bold text-slate-600">Texto / Label (Est+ítico ou R+¦tulo)</label>
+           <label class="block text-[10px] font-bold text-slate-600">Texto / Label (Est+ï¿½tico ou R+ï¿½tulo)</label>
            <input type="text" value="${el.label || ''}" onchange="layoutEditorModule.updateProp('label', this.value)" class="w-full text-xs p-1 border rounded">
         </div>
         <div class="grid grid-cols-2 gap-2 mb-3">
@@ -1215,10 +1215,10 @@ window.layoutEditorModule = {
              </select>
            </div>
            <div>
-             <label class="block text-[10px] font-bold text-slate-600">Vis+¡vel no Form</label>
+             <label class="block text-[10px] font-bold text-slate-600">Vis+ï¿½vel no Form</label>
              <select onchange="layoutEditorModule.updateProp('visible', this.value === 'true')" class="w-full text-xs p-1 border rounded bg-white">
                 <option value="true" ${el.visible !== false ? 'selected' : ''}>Sim</option>
-                <option value="false" ${el.visible === false ? 'selected' : ''}>N+úo (Oculto)</option>
+                <option value="false" ${el.visible === false ? 'selected' : ''}>N+ï¿½o (Oculto)</option>
              </select>
            </div>
         </div>
